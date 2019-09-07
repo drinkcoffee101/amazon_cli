@@ -1,0 +1,25 @@
+{
+  "name": "amazon_cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drinkcoffee101/amazon_cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drinkcoffee101/amazon_cli/issues"
+  },
+  "homepage": "https://github.com/drinkcoffee101/amazon_cli#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "inquirer": "^7.0.0",
+    "mysql": "^2.17.1"
+  }
+}
