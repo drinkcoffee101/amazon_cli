@@ -18,7 +18,9 @@ CREATE TABLE products (
 
     stock_quantity INTEGER(100),
 
-    PRIMARY KEY (item_id)
+    PRIMARY KEY (item_id),
+
+    product_sales INTEGER(100)
 );
 
 -- Insert rows into table 'products' --
@@ -56,4 +58,10 @@ VALUES
 ),
 ( 
  'ego is the enemy', 'books', 23.99, 3
+)
+
+CREATE TABLE departments (
+    department_id INTEGER NOT NULL,
+    department_name VARCHAR(30),
+    over_head_costs DECIMAL(30,2)
 )
