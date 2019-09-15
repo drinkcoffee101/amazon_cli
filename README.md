@@ -11,7 +11,7 @@
 
     ##### Demo:
     
-            ![Customer view](\gifs\bamazon_customer.gif)
+            ![Customer view](gifs\bamazon_customer.gif)
 
 #### bamazon Manager
 ###### Available commands 
