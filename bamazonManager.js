@@ -111,7 +111,7 @@ let thirdOptions = [
 // If a manager selects View Products for Sale, the app should list every available item: the item IDs, names, prices, and quantities.
 let viewProducts = () => {
     console.log("Selecting all products...\n");
-    connection.query("SELECT item_id, product_name, price, stock_quantity FROM products", (err, res) => {
+    connection.query("SELECT item_id, product_name, price, stock_quantity,product_sales FROM products", (err, res) => {
         if (err) throw err;
         console.table(res);
         connection.end();

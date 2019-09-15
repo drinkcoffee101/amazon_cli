@@ -74,8 +74,11 @@ let checkStock = (itemNumber, requestedUnits) => {
     var unitsRemaining = 0;
     var totalPrice = 0;
 
-    connection.query(`SELECT stock_quantity,price FROM products WHERE item_id=${itemNumber}`, function (err, res) {
+    connection.query(`SELECT stock_quantity,price,product_sales FROM products WHERE item_id=${itemNumber}`, function (err, res) {
         if (err) throw err;
+
+        // //get total product sales amount
+        var totalSales = res[0].product_sales;
 
         //calculate the total purchase 
         unitsRemaining = res[0].stock_quantity;
@@ -86,7 +89,8 @@ let checkStock = (itemNumber, requestedUnits) => {
         if (unitsRemaining > requestedUnits) {
             unitsRemaining -= requestedUnits;
             purchaseItem(itemNumber, unitsRemaining);
-            addToProductsSales(itemNumber, totalPrice);
+            totalSales+=parseInt(totalPrice);
+            addToProductsSales(itemNumber, totalSales);
             console.log('Here is the total price!: ' + totalPrice);
             connection.end();
         }
@@ -113,7 +117,7 @@ let purchaseItem = (itemNumber, unitsRemaining) => {
         ],
         function (err, res) {
             if (err) throw err;
-            console.log(res.affectedRows + " products updated!\n");
+            console.log(" products updated!\n");
         }
     )
     // console.log(query.sql);
@@ -121,11 +125,18 @@ let purchaseItem = (itemNumber, unitsRemaining) => {
 
 let addToProductsSales = (itemID, transctionAmount) => {
     var query = connection.query(
-        `UPDATE products SET product_sales=products_sales+${transctionAmount}  WHERE itemID=${itemID}`, (err, res) => {
+        'UPDATE products SET ? WHERE ?',
+        [
+            {
+                product_sales: transctionAmount
+            },
+            {
+                item_id: itemID
+            }
+        ]
+        , (err, res) => {
             if (err) throw err;
-            console.log("Table Updated\n" + res.affectedRows);
+            console.log("Table Updated\n");
         })
 }
 
-
-// modify your bamazonCustomer.js app so that when a customer purchases anything from the store, the price of the product multiplied by the quantity purchased is added to the product's product_sales column.

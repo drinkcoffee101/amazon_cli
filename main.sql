@@ -20,7 +20,14 @@ CREATE TABLE products (
 
     PRIMARY KEY (item_id),
 
-    product_sales INTEGER(100)
+    product_sales DECIMAL(30,2) DEFAULT 0
+);
+
+CREATE TABLE departments (
+    department_id INTEGER NOT NULL AUTO_INCREMENT,
+    department_name VARCHAR(30),
+    over_head_costs DECIMAL(30,2),
+    PRIMARY KEY (department_id)
 );
 
 -- Insert rows into table 'products' --
@@ -60,8 +67,3 @@ VALUES
  'ego is the enemy', 'books', 23.99, 3
 )
 
-CREATE TABLE departments (
-    department_id INTEGER NOT NULL,
-    department_name VARCHAR(30),
-    over_head_costs DECIMAL(30,2)
-)
