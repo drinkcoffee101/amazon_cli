@@ -5,6 +5,8 @@ const inquirer = require('inquirer');
 var connection = mysql.createConnection({
     host: "localhost",
 
+    multipleStatements: true,
+
     // Your port; if not 3306
     port: 3306,
 
@@ -44,9 +46,22 @@ let options = [
 ]
 
 let viewProductSales = () => {
-    connection.query('SELECT departments.department_id, departments.department_name, products.product_sales FROM departments INNER JOIN products ON departments.department_name=products.department_name', (err, res) => {
+    connection.query('SELECT departments.department_id, departments.department_name, products.product_sales,departments.over_head_costs,products.price,departments.total_profit FROM departments INNER JOIN products ON departments.department_name=products.department_name', (err, res) => {
         if (err) throw err;
-        console.table(res);
+      
+        res.forEach(e => {
+            var newTotal = e.product_sales + e.total_profit;
+            connection.query('UPDATE departments SET ? WHERE ?',[
+                {
+                    total_profit: newTotal
+                },
+                {
+                    department_id: e.department_id
+                }
+            ])
+            
+        })
+        
         connection.end();
     })
 }
@@ -54,3 +69,7 @@ let viewProductSales = () => {
 let createDepartment = () => {
 
 }
+
+
+//calculate differnce between over_head_costs and product sales 
+//INNER JOIN products ON departments.department_name=products.department_name
