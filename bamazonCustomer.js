@@ -86,6 +86,7 @@ let checkStock = (itemNumber, requestedUnits) => {
         if (unitsRemaining > requestedUnits) {
             unitsRemaining -= requestedUnits;
             purchaseItem(itemNumber, unitsRemaining);
+            addToProductsSales(itemNumber, totalPrice);
             console.log('Here is the total price!: ' + totalPrice);
             connection.end();
         }
@@ -118,9 +119,13 @@ let purchaseItem = (itemNumber, unitsRemaining) => {
     // console.log(query.sql);
 }
 
+let addToProductsSales = (itemID, transctionAmount) => {
+    var query = connection.query(
+        `UPDATE products SET product_sales=products_sales+${transctionAmount}  WHERE itemID=${itemID}`, (err, res) => {
+            if (err) throw err;
+            console.log("Table Updated\n" + res.affectedRows);
+        })
+}
 
 
-//choices: function(){
-    //loop over array
-    //display array 
-//}
+// modify your bamazonCustomer.js app so that when a customer purchases anything from the store, the price of the product multiplied by the quantity purchased is added to the product's product_sales column.
