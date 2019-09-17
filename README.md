@@ -11,7 +11,7 @@
 
     ##### Demo:
     
-            ![Customer view](gifs\bamazon_customer.gif)
+            <img src='gifs\bamazon_customer.gif'>
 
 #### bamazon Manager
 ###### Available commands 
@@ -22,9 +22,9 @@
     1. Add New Product
     ##### Demo 1:
     
-            ![Manager View](gifs\bamazon_manager_1.gif)
+            <img src='gifs\bamazon_manager_1.gif'>
 
     ##### Demo 2:
     
-            ![Manager View](gifs\bamazon_manager_2.gif)
+            <img src='gifs\bamazon_manager_2.gif'>
 
