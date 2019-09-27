@@ -26,5 +26,5 @@
 
     ##### Demo 2:
     
-            ![Manager View](gifs/bamazon_manager_2.gif)
+            ![Manager View](./gifs/bamazon_manager_2.gif)
 
