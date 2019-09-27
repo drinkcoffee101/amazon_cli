@@ -11,7 +11,7 @@
 
     ##### Demo:
     
-            <img src='/amazon_cli/gifs/bamazon_customer.gif'>
+            <img src='gifs/bamazon_customer.gif'>
 
 #### bamazon Manager
 ###### Available commands 
