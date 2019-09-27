@@ -1,0 +1,1 @@
+![](/img/bamazon_manager_1.gif)
