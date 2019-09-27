@@ -22,7 +22,7 @@
     1. Add New Product
     ##### Demo 1:
     
-            ![Manager View](./gifs/bamazon_manager_1.gif)
+            ![Manager View](gifs/bamazon_manager_1.gif)
 
     ##### Demo 2:
     
