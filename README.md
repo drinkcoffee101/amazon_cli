@@ -10,8 +10,8 @@
     * App will request itemID and how much you would like to buy 
 
     ##### Demo:
-    
-        <img src='imgs/bamazon_customer.gif'>
+
+![](/imgs/bamazon_customer.gif)
 
 #### bamazon Manager
 ###### Available commands 
@@ -20,11 +20,8 @@
     1. View Low Inventory
     1. Add to Inventory
     1. Add New Product
-    ##### Demo 1:
+    ##### Demo:
     
-        ![](imgs/bamazon_manager_1.gif)
+![](/imgs/bamazon_manager_1.gif)
 
-    ##### Demo 2:
-    
-        ![](imgs/bamazon_manager_2.gif)
-
+![](/imgs/bamazon_manager_2.gif)
